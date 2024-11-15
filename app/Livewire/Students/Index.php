@@ -15,7 +15,7 @@ class Index extends Component
     #[Layout('layouts.app')]
     public function render()
     {
-        return view('livewire.student.index', [
+        return view('livewire.students.index', [
             'student' => Student::paginate(10)
         ]);
     }

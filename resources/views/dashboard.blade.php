@@ -1,15 +1,26 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-200 text-center">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
 
-    <div class="py-10 flex justify-center">
-        <div class="w-full max-w-md bg-blue-50 dark:bg-gray-800 border border-blue-200 dark:border-gray-600 rounded-lg shadow-lg">
-            <div class="p-8 text-center">
-                <h3 class="text-xl font-semibold text-blue-700 dark:text-gray-100">{{ __("You're successfully logged in!") }}</h3>
-                <p class="mt-2 text-gray-600 dark:text-gray-400">Welcome back! Explore the dashboard to get started.</p>
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <!-- Dashboard Card with Shadow and Rounded Corners -->
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-lg sm:rounded-xl">
+                <div class="p-6 text-gray-900 dark:text-gray-100">
+                    <h3 class="text-2xl font-semibold mb-4">{{ __("You're logged in!") }}</h3>
+                    
+                    <!-- Livewire Counter Component -->
+                    <div>
+                        @livewire('students.create')
+                    </div>
+                    <!-- Livewire Students Index Component -->
+                    <div>
+                        @livewire('students.index')
+                    </div>
+                </div>
             </div>
         </div>
     </div>
