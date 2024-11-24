@@ -16,7 +16,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/student', Students\Index::class)->name('student.index');
+
+    Route::get('/students', Students\Index::class)->name('students.index');
+    Route::get('/students/create', Students\Create::class)->name('students.create');
+    Route::get('/students/edit/{student}', Students\Edit::class)->name('students.edit');
 });
 
 require __DIR__.'/auth.php';
