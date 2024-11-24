@@ -8,15 +8,23 @@ use Livewire\Component;
 use Livewire\WithoutUrlPagination;
 use Livewire\WithPagination;
 
-
 class Index extends Component
 {
+
     use WithPagination, WithoutUrlPagination;
+
     #[Layout('layouts.app')]
     public function render()
     {
         return view('livewire.students.index', [
-            'student' => Student::paginate(10)
+            'students' => Student::paginate(10)
         ]);
+    }
+
+    public function delete(Student $student)
+    {
+        $student->delete();
+
+        flash()->success('Student Deleted successfully!');
     }
 }
